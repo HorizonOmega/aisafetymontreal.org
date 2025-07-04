@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Safety Montréal – Community Directory</title>
+    <meta name="description"
+        content="Comprehensive directory of AI safety, ethics, and governance organizations in Montréal. Connect with research institutes, student groups, and meetups.">
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="AI Safety Montréal – Community Directory">
+    <meta property="og:description"
+        content="Comprehensive directory of AI safety, ethics, and governance organizations in Montréal. Connect with research institutes, student groups, and meetups.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aisafetymontreal.org">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <style>
+        :root {
+            --primary-blue: #1a4f7a;
+            --primary-blue-hover: #154063;
+            --light-blue: #e8f3ff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #777;
+            --border-light: #e5e5e5;
+            --border-lighter: #f0f0f0;
+            --bg-section: #fafbfc;
+            --bg-white: #ffffff;
+            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.65;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        /* Enhanced Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        /* Intro */
+        .intro {
+            background: var(--bg-section);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .intro p {
+            margin-bottom: 1rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* Category Sections */
+        .category {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-lighter);
+        }
+
+        .category:last-child {
+            border-bottom: none;
+        }
+
+        .category-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Organization Groups */
+        .group {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-lighter);
+        }
+
+        .group:last-child {
+            border-bottom: none;
+        }
+
+        .group h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .group p {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Enhanced Links */
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-blue-hover);
+            text-decoration: underline;
+        }
+
+        a:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Lists */
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Subsection headings in Notes */
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        /* Special styling for Notes subsection headings */
+        .notes-subsection {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Link Groups */
+        .links {
+            margin-top: 0.5rem;
+        }
+
+        .links a {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+        }
+
+        .language-toggle button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .language-toggle button:hover {
+            background: var(--primary-blue-hover);
+            box-shadow: var(--shadow-card);
+        }
+
+        .language-toggle button:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Language Switching */
+        .lang-fr {
+            display: none;
+        }
+
+        .lang-en {
+            display: block;
+        }
+
+        body.french .lang-fr {
+            display: block;
+        }
+
+        body.french .lang-en {
+            display: none;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .intro {
+                padding: 1rem;
+            }
+
+            .language-toggle {
+                position: static;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-blue: #003366;
+                --text-primary: #000;
+                --text-secondary: #333;
+                --border-light: #666;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            body {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="language-toggle" aria-label="Language selection">
+            <button onclick="toggleLanguage()" id="langToggle" aria-pressed="false" tabindex="0">Français</button>
+        </nav>
+        <header>
+            <h1 class="lang-en" id="main-heading-en">AI Safety Montréal</h1>
+            <h1 class="lang-fr" lang="fr" id="main-heading-fr" aria-hidden="true">Sûreté de l'IA Montréal</h1>
+            <p class="subtitle lang-en">Community hub for AI ethics, safety, governance and alignment</p>
+            <p class="subtitle lang-fr" lang="fr">Page communautaire pour l'éthique, la sûreté, la gouvernance et
+                l'alignement
+                de l'IA</p>
+        </header>
+
+        <div class="intro">
+            <p class="lang-en">Montréal hosts a vibrant ecosystem of AI safety, ethics, and governance initiatives,
+                spanning academia,
+                nonprofits, student groups, community meetups, and government programs.</p>
+            <p class="lang-fr" lang="fr">À Montréal, on retrouve un écosystème dynamique d'organismes en sûreté de l'IA,
+                éthique
+                et
+                gouvernance. Ça inclut des universités, des organismes sans but lucratif, des groupes étudiants, des
+                rencontres
+                communautaires et des programmes gouvernementaux.</p>
+
+            <div style="margin-top: 2rem; margin-bottom: 1.5rem;">
+                <p class="lang-en"><strong>Quick ways to get involved:</strong></p>
+                <p class="lang-fr"><strong>Comment s'impliquer vite :</strong></p>
+            </div>
+
+            <ul style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                <li class="lang-en" style="margin-bottom: 1rem;">Join the <a
+                        href="https://www.meetup.com/montreal-ai-governance-ethics-safety/" target="_blank"
+                        rel="noopener noreferrer">Montréal AI Governance, Ethics & Safety Meetups</a></li>
+                <li class="lang-fr" style="margin-bottom: 1rem;">Participe au <a
+                        href="https://www.meetup.com/montreal-ai-governance-ethics-safety/" target="_blank"
+                        rel="noopener noreferrer">Meetup Montréal AI Governance, Ethics & Safety</a>
+                    (grande communauté)</li>
+                <li class="lang-en" style="margin-bottom: 1rem;">Contact <a href="mailto:team@horizonomega.org"
+                        aria-label="Email Horizon Omega">Horizon Omega</a> for orientation or discussion about AI
+                    in Montréal</li>
+                <li class="lang-fr" style="margin-bottom: 1rem;">Écris à <a href="mailto:team@horizonomega.org"
+                        aria-label="Envoyer un courriel à Horizon Omega">Horizon Omega</a> pour une orientation ou une
+                    discussion sur la sûreté de l'IA à Montréal</li>
+            </ul>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-lighter);">
+                <p class="lang-en"><em>Details may evolve; follow links for current information. For this
+                        directory, <strong>AI Safety</strong> means the
+                        technical, policy, and community work aimed at ensuring advanced AI systems remain beneficial
+                        and do
+                        not pose undue risks to individuals, society, or humanity.</em></p>
+                <p class="lang-fr"><em>Les détails peuvent évoluer ; consultez les liens pour les
+                        informations actuelles. Pour ce répertoire, <strong>Sûreté de l'IA</strong>
+                        signifie le travail technique, politique et communautaire visant à s'assurer que les systèmes
+                        d'IA
+                        avancés restent bénéfiques et ne posent pas de risques indus aux individus, à la société ou à
+                        l'humanité.</em></p>
+            </div>
+        </div>
+
+        <main>
+            <section class="category" aria-labelledby="mila-heading">
+                <a href="https://mila.quebec" target="_blank" rel="noopener noreferrer">
+                    <h2 id="mila-heading" class="lang-en">Mila – Québec AI Institute</h2>
+                    <h2 class="lang-fr">Mila – Institut québécois d'intelligence artificielle</h2>
+                </a>
+                <p class="category-description lang-en">World-leading AI research institute with dedicated safety
+                    research
+                    programs, policy initiatives, and international partnerships.</p>
+                <p class="category-description lang-fr">Institut de recherche en IA de renommée mondiale. Fait de la
+                    recherche en sûreté, des initiatives politiques et des partenariats internationaux.
+                </p>
+                <div class="group">
+                    <h3 class="lang-en">AI Governance, Public Policy & Safety</h3>
+                    <h3 class="lang-fr">Gouvernance de l'IA, Politiques publiques et sûreté</h3>
+                    <p class="lang-en">World-class AI research institute with dedicated safety research. Mila runs
+                        research programmes in AI alignment and governance and collaborates with international bodies
+                        such as UNESCO. A landmark international AI-safety report was coordinated here.</p>
+                    <p class="lang-fr">Institut de recherche en IA de classe mondiale qui fait de la recherche en
+                        sûreté. Mila gère des programmes de recherche en alignement et gouvernance IA et collabore avec
+                        des organismes internationaux tels que l'UNESCO. Un rapport international marquant sur la sûreté
+                        de l'IA a été coordonné ici.</p>
+                    <div class="links">
+                        <a href="https://mila.quebec/en/ai4humanity/ai-governance-public-policy-and-safety"
+                            target="_blank" rel="noopener noreferrer">AI Governance & Safety</a>
+                    </div>
+                </div>
+                <div class="group">
+                    <h3 class="lang-en">AI Safety Reading Group</h3>
+                    <h3 class="lang-fr">Groupe de lecture en sûreté de l'IA</h3>
+                    <p class="lang-en">Discussion group at Mila focusing on technical papers.</p>
+                    <p class="lang-fr">Groupe de discussion à Mila qui discute d'articles techniques.</p>
+                    <div class="links">
+                        <a href="mailto:team@horizonomega.org" target="_blank" rel="noopener noreferrer">Contact for
+                            details</a>
+                    </div>
+                </div>
+                <div class="group">
+                    <h3 class="lang-en">Krueger AI Safety Lab (KASL)</h3>
+                    <h3 class="lang-fr">Laboratoire de sûreté de l'IA Krueger (KASL)</h3>
+                    <p class="lang-en">Technical alignment research group led by Prof. David Krueger.
+                        Focuses on goal
+                        misgeneralization, reward hacking, scalable oversight, and interpretability.</p>
+                    <p class="lang-fr">Groupe de recherche en alignement technique dirigé par le Prof. David Krueger.
+                        Se concentre sur la généralisation incorrecte des objectifs, le piratage de
+                        récompenses, la supervision évolutive et l'interprétabilité.</p>
+                    <div class="links">
+                        <a href="https://www.kasl.ai" target="_blank" rel="noopener noreferrer">kasl.ai</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="independent-orgs-heading">
+                <h2 id="independent-orgs-heading" class="lang-en">Independent AI Safety Organizations</h2>
+                <h2 class="lang-fr">Organismes indépendants de sûreté de l'IA</h2>
+                <p class="category-description lang-en">Nonprofit organizations focused exclusively on AI safety
+                    research,
+                    community building, and coordination efforts.</p>
+                <p class="category-description lang-fr">Organismes à but non lucratif qui se concentrent sur la
+                    recherche
+                    en sûreté de l'IA, le développement communautaire et la coordination.</p>
+                <div class="group">
+                    <h3 class="lang-en">LawZero</h3>
+                    <h3 class="lang-fr">LawZero</h3>
+                    <p class="lang-en">LawZero is a Montréal-based nonprofit AI-safety lab launched in June 2025 by
+                        Yoshua Bengio and incubated at Mila. It develops "safe-by-design" methods
+                        for <em>non-agentic, truth-seeking AI systems</em> that can accelerate scientific
+                        discovery and provide rigorous oversight for more powerful agentic models, aiming to avert
+                        catastrophic risks rather than retrofit safety later.
+                    </p>
+                    <p class="lang-fr">LawZero est un laboratoire de sûreté de l'IA sans but lucratif basé à Montréal,
+                        lancé en juin 2025 par Yoshua Bengio et incubé à Mila. Il développe des méthodes «sûres par
+                        conception» pour des <em>systèmes d'IA non-agentiques et axés sur la vérité</em> qui
+                        peuvent accélérer la découverte scientifique et fournir une supervision rigoureuse pour des
+                        modèles agentiques plus puissants, visant à éviter les risques catastrophiques plutôt que
+                        d'ajouter la sûreté après coup.</p>
+                    <div class="links">
+                        <a href="https://lawzero.org/en" target="_blank" rel="noopener noreferrer">lawzero.org</a>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <h3 class="lang-en">Horizon Omega (HΩ)</h3>
+                    <h3 class="lang-fr">Horizon Omega (HΩ)</h3>
+
+                    <p class="lang-en">
+                        Canadian nonprofit catalyst for AI safety R&amp;D. Its <em>Horizon Events</em>
+                        programme runs event series such as the <em>Guaranteed Safe AI Seminars</em> and the
+                        <em>Virtual AI Safety Unconference&nbsp;(VAISU)</em>, while also offering event-support
+                        services to safety labs. HΩ curates open resources like the
+                        <em>AI Safety Events Tracker</em> and <em>aisafetymontreal.org</em>.
+                        It is open to collaboration and volunteering.
+                    </p>
+
+                    <p class="lang-fr">
+                        Organisme canadien sans but lucratif catalyseur de R&amp;D en sûreté de l'IA.
+                        Son programme <strong>Horizon Events</strong> organise des séries d'événements telles que les
+                        <em>Séminaires Guaranteed Safe AI</em> et l'<em>AI Safety Unconference
+                            virtuelle&nbsp;(VAISU)</em>,
+                        et offre un soutien événementiel aux laboratoires de sûreté.
+                        HΩ tient à jour des ressources ouvertes comme l'<em>AI Safety Events Tracker</em>
+                        et <em>aisafetymontreal.org</em>. L'organisation est ouverte à la collaboration
+                        et au bénévolat.
+                    </p>
+
+                    <div class="links">
+                        <a href="https://horizonomega.org" target="_blank"
+                            rel="noopener noreferrer">horizonomega.org</a>
+                        <a href="mailto:team@horizonomega.org"
+                            aria-label="Email Horizon Omega">team@horizonomega.org</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="academic-institutes-heading">
+                <h2 id="academic-institutes-heading" class="lang-en">Academic institutes</h2>
+                <h2 class="lang-fr">Instituts de recherche</h2>
+                <p class="category-description lang-en">Research institutes with dedicated technical AI safety and
+                    alignment programs. Listed here are institutes with specifically named AI safety clusters or
+                    programs.</p>
+                <p class="category-description lang-fr">Instituts de recherche avec des programmes techniques en sûreté
+                    et alignement de l'IA. Répertoriés ici sont les instituts avec des programmes ou grappes de sûreté
+                    de l'IA spécifiquement nommés.</p>
+                <div class="group">
+                    <h3 class="lang-en">IVADO (Institut de valorisation des données)</h3>
+                    <h3 class="lang-fr">IVADO (Institut de valorisation des données)</h3>
+                    <p class="lang-en">Major Montréal data science and AI institute running the R³ AI
+                        program
+                        (Robust, Reasoning and Responsible AI), led by Yoshua Bengio. Under the R³ AI programme, the
+                        <em>R10: AI Safety & Alignment</em> cluster studies evaluation, alignment methods and
+                        scalable oversight, supported in part by federal excellence funding.
+                    </p>
+                    <p class="lang-fr" lang="fr">Grand institut de science des données et d'IA de Montréal qui gère le
+                        programme
+                        R³ AI (IA robuste, raisonnante et responsable), dirigé par Yoshua Bengio. Sous le programme R³
+                        AI, la grappe
+                        <em>R10 : Sûreté et alignement de l'IA</em> étudie l'évaluation, les méthodes
+                        d'alignement et la supervision évolutive, soutenue en partie par un financement fédéral
+                        d'excellence.
+                    </p>
+                    <div class="links">
+                        <a href="https://ivado.ca" target="_blank" rel="noopener noreferrer">ivado.ca</a>
+                        <a href="https://ivado.ca/en/regroupements/ai-safety-and-alignment/" target="_blank"
+                            rel="noopener noreferrer">R10: AI Safety & Alignment</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="university-safety-clubs-heading">
+                <h2 id="university-safety-clubs-heading" class="lang-en">University AI Safety Clubs</h2>
+                <h2 class="lang-fr">Clubs universitaires de sûreté de l'IA</h2>
+                <p class="category-description lang-en">Student-led initiatives at local universities whose central
+                    mission is advanced AI safety and alignment research.</p>
+                <p class="category-description lang-fr">Initiatives étudiantes dans les universités locales dont la
+                    mission centrale est la recherche en sûreté et alignement de l'IA avancée.</p>
+                <div class="group">
+                    <h3 class="lang-en">AI Alignment McGill (AIAM)</h3>
+                    <h3 class="lang-fr">AI Alignment McGill (AIAM)</h3>
+                    <p class="lang-en">Student club at McGill University, organising events; schedules vary—see link.
+                    </p>
+                    <p class="lang-fr">Club étudiant à McGill University, organisant des événements; horaires variables
+                        —voir le lien.</p>
+                    <div class="links">
+                        <a href="https://www.lesswrong.com/groups/TLbuSuKccZThdvDBo" target="_blank"
+                            rel="noopener noreferrer">LessWrong page</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="meetups-heading">
+                <h2 id="meetups-heading" class="lang-en">Meetups</h2>
+                <h2 class="lang-fr">Rencontres</h2>
+                <p class="category-description lang-en">Public gatherings for discussing AI safety, ethics, and
+                    governance in accessible formats.</p>
+                <p class="category-description lang-fr">Rencontres publiques pour discuter de sûreté de l'IA,
+                    d'éthique et de gouvernance de façon accessible.</p>
+                <div class="group">
+                    <h3 class="lang-en">Montréal AI Governance, Ethics & Safety Meetup</h3>
+                    <h3 class="lang-fr">Meetup Montréal AI Governance, Ethics & Safety</h3>
+                    <p class="lang-en">Public meetup organising events. Covers both near-term AI ethics and long-term
+                        safety through informal discussions.
+                    </p>
+                    <p class="lang-fr">Meetup public organisant des événements. Organisé par des bénévoles d'AI
+                        Governance & Safety Canada.
+                        Couvre à la fois l'éthique de l'IA à court terme et la sûreté à long terme à travers des
+                        discussions informelles.</p>
+                    <div class="links">
+                        <a href="https://www.meetup.com/montreal-ai-governance-ethics-safety/" target="_blank"
+                            rel="noopener noreferrer">Join on Meetup</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="policy-govt-heading">
+                <h2 id="policy-govt-heading" class="lang-en">Policy & Government Interfaces</h2>
+                <h2 class="lang-fr">Interfaces gouvernementales et politiques</h2>
+                <p class="category-description lang-en">Federal and provincial initiatives connecting Montréal's AI
+                    safety
+                    research to Canadian policy development.</p>
+                <p class="category-description lang-fr">Initiatives fédérales et provinciales qui connectent la
+                    recherche en
+                    sûreté de l'IA
+                    de Montréal au développement des politiques canadiennes.</p>
+                <div class="group">
+                    <h3 class="lang-en">Canadian AI Safety Institute (CAISI)</h3>
+                    <h3 class="lang-fr">Institut canadien de sûreté de l'IA (CAISI)</h3>
+                    <p class="lang-en">The Canadian AI Safety Institute (CAISI) is a federal initiative that funds and
+                        coordinates AI-safety research nationwide. It has dual structure: CAISI Research
+                        Program at CIFAR
+                        with
+                        co-direction from UdeM and U of T researchers (co-directed by Mila-affiliated Prof. Catherine
+                        Régis), plus NRC-led government R&D.</p>
+                    <p class="lang-fr">L'Institut canadien de sûreté de l'IA (CAISI) est une initiative fédérale qui
+                        finance et coordonne la recherche en sûreté de l'IA à travers le Canada. Elle a une structure
+                        duale : le
+                        programme de recherche CAISI au CIFAR avec co-direction de chercheurs de l'UdeM et de
+                        l'Université de Toronto
+                        (co-dirigé par la Prof. Catherine Régis affiliée à Mila),
+                        plus R&D gouvernementale dirigée par le CNRC.</p>
+                    <div class="links">
+                        <a href="https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute"
+                            target="_blank" rel="noopener noreferrer">CAISI</a>
+                        <a href="https://cifar.ca/ai/caisi/" target="_blank" rel="noopener noreferrer">CIFAR Research
+                            Program</a>
+                    </div>
+                </div>
+                <div class="group">
+                    <h3 class="lang-en">Quebec Government Office of the Chief Scientist</h3>
+                    <h3 class="lang-fr">Bureau du scientifique en chef du Québec</h3>
+                    <p class="lang-en">Coordinates provincial AI programmes (e.g. OBVIA) and advises the Québec
+                        government on AI policy.</p>
+                    <p class="lang-fr">Coordonne les programmes d'IA provinciaux (ex. OBVIA) et conseille le
+                        gouvernement
+                        du Québec sur la politique d'IA.</p>
+                    <div class="links">
+                        <a href="https://www.scientifique-en-chef.gouv.qc.ca/" target="_blank"
+                            rel="noopener noreferrer">Bureau
+                            du scientifique en chef</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category" aria-labelledby="notes-heading">
+                <h2 id="notes-heading" class="lang-en">Notes and adjacent efforts</h2>
+                <h2 class="lang-fr">Notes et efforts connexes</h2>
+                <p class="category-description lang-en">Additional organizations and frameworks relevant to Montréal's
+                    AI safety ecosystem.</p>
+                <p class="category-description lang-fr">Organismes et cadres supplémentaires pertinents à l'écosystème
+                    de sûreté de l'IA de Montréal.</p>
+
+                <div style="margin-top: 1.5rem;">
+                    <h3 class="lang-en notes-subsection">Responsible AI & Governance</h3>
+                    <h3 class="lang-fr notes-subsection">IA responsable et gouvernance</h3>
+                    <p class="lang-en" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Organizations focused on AI ethics, responsible AI development, and broader governance
+                        frameworks.</p>
+                    <p class="lang-fr" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Organismes axés sur l'éthique de l'IA, le développement d'IA responsable et les cadres de
+                        gouvernance plus larges.</p>
+
+                    <div class="group">
+                        <h4 class="lang-en">Montréal AI Ethics Institute (MAIEI)</h4>
+                        <h4 class="lang-fr">Institut d'éthique de l'IA de Montréal (MAIEI)</h4>
+                        <p class="lang-en">Founded in 2018 by the late Abhishek Gupta (1992-2024) and Renjie Butalid to
+                            democratize AI ethics literacy. Publishes open-access resources such as the AI Ethics Brief
+                            newsletter
+                            and the <em>State of AI Ethics</em> report series.</p>
+                        <p class="lang-fr" lang="fr">Fondé en 2018 par feu Abhishek Gupta (1992-2024) et Renjie Butalid
+                            pour démocratiser la littératie en éthique de l'IA. Publie des ressources libres d'accès
+                            telles que l'infolettre AI Ethics Brief
+                            et la série <em>State of AI Ethics</em>.</p>
+                        <div class="links">
+                            <a href="https://montrealethics.ai" target="_blank"
+                                rel="noopener noreferrer">montrealethics.ai</a>
+                            <a href="https://montrealethics.ai/volume6/" target="_blank" rel="noopener noreferrer">State
+                                of AI Ethics Report</a>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4 class="lang-en">CEIMIA (Centre for Expertise on Inclusive AI)</h4>
+                        <h4 class="lang-fr">CEIMIA (Centre d'expertise sur l'IA inclusive)</h4>
+                        <p class="lang-en">Montréal-based research center focused on developing inclusive AI systems and
+                            governance frameworks. Works with the OECD and other
+                            international organizations on AI policy development. Specializes in addressing bias,
+                            fairness,
+                            and representation issues in AI systems.</p>
+                        <p class="lang-fr">Centre de recherche basé à Montréal axé sur le développement de systèmes d'IA
+                            inclusifs et de cadres de gouvernance. Travaille avec l'OCDE et d'autres
+                            organisations internationales sur le développement de politiques d'IA. Se
+                            spécialise dans la résolution des problèmes de biais, d'équité et de représentation dans les
+                            systèmes d'IA.</p>
+                        <div class="links">
+                            <a href="https://ceimia.org" target="_blank" rel="noopener noreferrer">ceimia.org</a>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4 class="lang-en">OBVIA (Observatoire international sur les impacts sociétaux de l'IA)</h4>
+                        <h4 class="lang-fr">OBVIA (Observatoire international sur les impacts sociétaux de l'IA)</h4>
+                        <p class="lang-en">Governance-focused research hub on societal impacts of AI, bringing together
+                            19 Quebec
+                            institutions including UdeM, Concordia, HEC, Polytechnique, and McGill. With a renewed
+                            mandate,
+                            produces annual status reports on AI's societal impacts and organizes public forums.
+                            Examines the pace of AI development relative to governance frameworks.</p>
+                        <p class="lang-fr" lang="fr">Pôle de recherche axé sur la gouvernance des impacts sociétaux de
+                            l'IA, rassemblant 19
+                            institutions québécoises incluant l'UdeM, Concordia, HEC, Polytechnique et McGill. Avec un
+                            mandat
+                            renouvelé, produit des rapports annuels sur les impacts sociétaux de l'IA et
+                            organise des forums publics. Examine régulièrement le rythme de développement de l'IA par
+                            rapport aux cadres de gouvernance.</p>
+                        <div class="links">
+                            <a href="https://observatoire-ia.ulaval.ca" target="_blank"
+                                rel="noopener noreferrer">observatoire-ia.ulaval.ca</a>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4 class="lang-en">CIFAR AI & Society Program</h4>
+                        <h4 class="lang-fr">Programme IA et société du CIFAR</h4>
+                        <p class="lang-en">Canadian Institute for Advanced Research program focused on AI's societal
+                            impacts and governance challenges. Brings together researchers from across Canada to address
+                            ethical implications and policy development. Conducts research initiatives
+                            connecting AI development with human values and social good. Note: CIFAR separately hosts
+                            the Canadian AI Safety Institute (CAISI) Research Program with dedicated technical safety
+                            funding.</p>
+                        <p class="lang-fr" lang="fr">Programme de l'Institut canadien de recherches avancées axé sur les
+                            impacts
+                            sociétaux de l'IA et les défis de gouvernance. Rassemble des chercheurs de tout le Canada
+                            pour aborder
+                            les implications éthiques et le développement de politiques. Mène des
+                            initiatives de recherche connectant le développement de l'IA avec
+                            les valeurs humaines et le bien social. Note : Le CIFAR héberge séparément le Programme de
+                            recherche de l'Institut canadien de sûreté de l'IA (CAISI) avec un financement technique
+                            dédié à la sûreté.</p>
+                        <div class="links">
+                            <a href="https://cifar.ca/ai/ai-and-society/" target="_blank"
+                                rel="noopener noreferrer">CIFAR AI & Society</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h3 class="lang-en notes-subsection">Responsible AI, Ethics & Governance (University-led)</h3>
+                    <h3 class="lang-fr notes-subsection">IA responsable, éthique et gouvernance (Initiatives
+                        universitaires)</h3>
+                    <p class="lang-en" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        University-based research centers and initiatives focused on AI ethics, responsible AI
+                        development, and governance frameworks.</p>
+                    <p class="lang-fr" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Centres de recherche et initiatives universitaires axés sur l'éthique de l'IA, le développement
+                        d'IA responsable et les cadres de gouvernance.</p>
+
+                    <div class="group">
+                        <h4 class="lang-en">Concordia University AI Ethics Initiatives</h4>
+                        <h4 class="lang-fr">Initiatives d'éthique de l'IA de l'Université Concordia</h4>
+                        <p class="lang-en">Multiple research and community initiatives including <em>Affecting
+                                Machines</em>
+                            participatory
+                            action research group focused on gender diversity in AI, and a <em>Feminist Perspectives on
+                                AI</em>
+                            reading group on feminist perspectives in AI (see Concordia site for schedule). The Applied
+                            AI
+                            Institute emphasizes responsible innovation with principles
+                            of ethics, transparency, and social good. Also hosts the Montreal AI Community-Based Action
+                            Research
+                            (AI CBAR) Network, a city-wide initiative anchored at Concordia.</p>
+                        <p class="lang-fr">Plusieurs initiatives de recherche et communautaires incluant le groupe de
+                            recherche-action participative <em>Affecting Machines</em> axé sur la diversité de genre en
+                            IA,
+                            et un groupe de lecture <em>Perspectives féministes sur l'IA</em> sur les perspectives
+                            féministes en IA (voir le site de Concordia pour l'horaire). L'Institut d'IA appliquée
+                            met
+                            l'accent sur l'innovation responsable avec des principes d'éthique, de transparence et de
+                            bien
+                            social. Concordia héberge aussi le réseau Montreal AI Community-Based Action Research (AI
+                            CBAR), une
+                            initiative à l'échelle de la ville ancrée à Concordia.</p>
+                        <div class="links">
+                            <a href="https://www.concordia.ca/research/applied-ai-institute.html" target="_blank"
+                                rel="noopener noreferrer">Applied AI Institute</a>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4 class="lang-en">McGill Centre for Media, Technology & Democracy</h4>
+                        <h4 class="lang-fr">Centre McGill pour les médias, la technologie et la démocratie</h4>
+                        <p class="lang-en">Research center at McGill University focusing on AI governance, digital
+                            democracy, and the intersection of technology with democratic institutions. Conducts
+                            research on
+                            AI regulation, algorithmic transparency, and the impact of AI systems on democratic
+                            processes.
+                            Engages with policy and civil society communities.</p>
+                        <p class="lang-fr">Centre de recherche à l'Université McGill axé sur la gouvernance de l'IA, la
+                            démocratie numérique et l'intersection de la technologie avec les institutions
+                            démocratiques.
+                            Mène des recherches sur la réglementation de l'IA, la transparence algorithmique et l'impact
+                            des
+                            systèmes d'IA sur les processus démocratiques. S'engage avec les communautés politiques et
+                            de la
+                            société civile.</p>
+                        <div class="links">
+                            <a href="https://www.mediatechdemocracy.com" target="_blank"
+                                rel="noopener noreferrer">Centre for
+                                Media, Technology & Democracy</a>
+                            <a href="https://www.mediatechdemocracy.com/ai-and-democracy" target="_blank"
+                                rel="noopener noreferrer">AI and Democracy</a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h3 class="lang-en notes-subsection">Communities</h3>
+                    <h3 class="lang-fr notes-subsection">Communautés</h3>
+                    <p class="lang-en" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Related communities that intersect with AI safety through rationality, effective altruism, and
+                        long-term thinking.</p>
+                    <p class="lang-fr" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Communautés connexes qui touchent la sûreté de l'IA par la rationalité, l'altruisme efficace et
+                        la pensée à long terme.</p>
+
+                    <div class="group">
+                        <h4 class="lang-en">ACX Montréal (Montréal LessWrong)</h4>
+                        <h4 class="lang-fr">ACX Montréal (Montréal LessWrong)</h4>
+                        <p class="lang-en">Rationalist community that discusses Astral Codex Ten posts,
+                            rationality topics,
+                            and AI alignment. Current iteration of the original Montréal LessWrong group. Hosts
+                            Discord
+                            server and email list for coordination.</p>
+                        <p class="lang-fr">Communauté rationaliste qui discute des
+                            articles
+                            d'Astral Codex Ten, de sujets de rationalité et d'alignement de l'IA. Itération actuelle du
+                            groupe original Montréal LessWrong. Héberge un serveur Discord et une liste de courriel
+                            pour
+                            la coordination.</p>
+                        <div class="links">
+                            <a href="https://www.lesswrong.com/groups/3nnqSgGbF8x3mTcia" target="_blank"
+                                rel="noopener noreferrer">LessWrong page</a>
+                            <a href="https://discord.gg/K8gMNzqPVG" target="_blank"
+                                rel="noopener noreferrer">Discord</a>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4 class="lang-en">Effective Altruism Montréal (EA Québec)</h4>
+                        <h4 class="lang-fr">Altruisme efficace Montréal (EA Québec)</h4>
+                        <p class="lang-en">Local EA community organized under EA Québec. Hosts career workshops on AI
+                            and
+                            existential risk
+                            careers, helps members secure funding or small grants for projects, and connects to
+                            global EA movement. Has supported AI safety initiatives and reading groups.</p>
+                        <p class="lang-fr">Communauté EA locale organisée sous EA Québec. Organise des ateliers de
+                            carrière
+                            sur l'IA et les carrières de risque existentiel, aide les membres à sécuriser du financement
+                            ou
+                            de petites subventions pour des projets, et se connecte au mouvement EA
+                            mondial. A soutenu des initiatives de sûreté de l'IA et des groupes de lecture.</p>
+                        <div class="links">
+                            <a href="https://altruismeefficacequebec.org/en/projects/" target="_blank"
+                                rel="noopener noreferrer">EA
+                                Québec Projects</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="lang-en">Maintained by <a href="https://horizonomega.org" target="_blank"
+                    rel="noopener noreferrer">Horizon
+                    Omega</a>. Suggest edits via <a href="https://github.com/horizonomega/aisafetymontreal.org"
+                    target="_blank" rel="noopener noreferrer">GitHub</a> or <a href="mailto:team@horizonomega.org"
+                    aria-label="Email Horizon Omega">email</a>.</p>
+            <p class="lang-fr">Maintenu par <a href="https://horizonomega.org" target="_blank"
+                    rel="noopener noreferrer">Horizon
+                    Omega</a>. Suggère des modifications via <a
+                    href="https://github.com/horizonomega/aisafetymontreal.org" target="_blank"
+                    rel="noopener noreferrer">GitHub</a> ou par <a href="mailto:team@horizonomega.org"
+                    aria-label="Envoyer un courriel à Horizon Omega">courriel</a>.
+            </p>
+            <p class="lang-en" style="margin-top: 1rem; font-size: 0.8rem; color: #999;">Last significant content
+                review: <span id='last-review'>2025-01</span></p>
+            <p class="lang-fr" style="margin-top: 1rem; font-size: 0.8rem; color: #999;">Dernière révision significative
+                du contenu : <span id='last-review-fr'>janvier 2025</span></p>
+        </footer>
+    </div>
+
+    <script defer>
+        function toggleLanguage() {
+            const body = document.body;
+            const button = document.getElementById('langToggle');
+            const htmlRoot = document.getElementById('html-root');
+            const enHeading = document.getElementById('main-heading-en');
+            const frHeading = document.getElementById('main-heading-fr');
+
+            if (body.classList.contains('french')) {
+                body.classList.remove('french');
+                button.textContent = 'Français';
+                button.setAttribute('aria-pressed', 'false');
+                htmlRoot.setAttribute('lang', 'en');
+                enHeading.removeAttribute('aria-hidden');
+                frHeading.setAttribute('aria-hidden', 'true');
+                try {
+                    localStorage.setItem('language', 'en');
+                } catch (e) {
+                    // Handle localStorage not available (privacy mode, etc.)
+                }
+            } else {
+                body.classList.add('french');
+                button.textContent = 'English';
+                button.setAttribute('aria-pressed', 'true');
+                htmlRoot.setAttribute('lang', 'fr');
+                enHeading.setAttribute('aria-hidden', 'true');
+                frHeading.removeAttribute('aria-hidden');
+                try {
+                    localStorage.setItem('language', 'fr');
+                } catch (e) {
+                    // Handle localStorage not available (privacy mode, etc.)
+                }
+            }
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function () {
+            let savedLang = 'en';
+            try {
+                savedLang = localStorage.getItem('language');
+            } catch (e) {
+                // Handle localStorage not available (privacy mode, etc.)
+            }
+
+            const button = document.getElementById('langToggle');
+            const htmlRoot = document.getElementById('html-root');
+            const enHeading = document.getElementById('main-heading-en');
+            const frHeading = document.getElementById('main-heading-fr');
+
+            if (savedLang === 'fr') {
+                document.body.classList.add('french');
+                button.textContent = 'English';
+                button.setAttribute('aria-pressed', 'true');
+                htmlRoot.setAttribute('lang', 'fr');
+                enHeading.setAttribute('aria-hidden', 'true');
+                frHeading.removeAttribute('aria-hidden');
+            } else {
+                button.setAttribute('aria-pressed', 'false');
+                htmlRoot.setAttribute('lang', 'en');
+                enHeading.removeAttribute('aria-hidden');
+                frHeading.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+
+</html>
