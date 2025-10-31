@@ -478,10 +478,8 @@
 
         .entry-topline {
             display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 0.625rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .entry-name {
@@ -497,9 +495,10 @@
         }
 
         .entry-tags {
-            display: inline-flex;
+            display: flex;
             flex-wrap: wrap;
             gap: 0.375rem;
+            align-items: flex-start;
         }
 
         .entry-tags:empty {
@@ -509,9 +508,9 @@
         .tag {
             display: inline-flex;
             align-items: center;
-            padding: 0.1875rem 0.5rem;
+            padding: 0.125rem 0.375rem;
             border-radius: var(--radius-sm);
-            font-size: 0.6875rem;
+            font-size: 0.625rem;
             font-weight: 600;
             letter-spacing: 0.03em;
             text-transform: uppercase;
@@ -727,6 +726,15 @@
             .directory-card {
                 padding: 0.75rem 0.875rem;
             }
+
+            .directory-filter {
+                gap: 0.375rem;
+            }
+
+            .filter-btn {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
+            }
         }
 
         @media (max-width: 640px) {
@@ -744,6 +752,32 @@
 
             .calendar-embed iframe {
                 height: 400px;
+            }
+
+            .directory-card {
+                padding: 0.625rem 0.75rem;
+            }
+
+            .entry-name {
+                font-size: 0.875rem;
+            }
+
+            .entry-desc {
+                font-size: 0.875rem;
+            }
+
+            .entry-focus {
+                font-size: 0.8125rem;
+            }
+
+            .tag {
+                font-size: 0.5625rem;
+                padding: 0.125rem 0.3125rem;
+            }
+
+            .filter-btn {
+                font-size: 0.6875rem;
+                padding: 0.3125rem 0.625rem;
             }
         }
 
@@ -866,6 +900,10 @@
                     <span style="margin: 0 0.5rem; opacity: 0.5;">•</span>
                     <span class="lang-en">Last updated: October 31, 2025</span>
                     <span class="lang-fr">Dernière mise à jour : 31 octobre 2025</span>
+                </p>
+                <p style="margin-top: 0.5rem;">
+                    <span class="lang-en">Contact us to contribute to this website, add events, or list your organization</span>
+                    <span class="lang-fr">Contactez-nous pour contribuer à ce site, ajouter des événements ou lister votre organisation</span>
                 </p>
                 <div class="footer-links">
                     <a href="mailto:team@horizonomega.org">
