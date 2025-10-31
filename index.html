@@ -23,36 +23,66 @@
     
     <style>
         :root {
-            color-scheme: dark;
+            color-scheme: light dark;
             --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --fg: #ffffff;
-            --fg-muted: #a1a1aa;
-            --fg-soft: #71717a;
-            --fg-dim: #52525b;
-            --bg: #0a0a0b;
-            --bg-subtle: #111113;
-            --bg-surface: #18181b;
-            --bg-elevated: #27272a;
-            --bg-header: rgba(10, 10, 11, 0.8);
-            --bg-nav-mobile: rgba(24, 24, 27, 0.98);
-            --border: #27272a;
-            --border-subtle: #1a1a1c;
-            --border-hover: #3f3f46;
-            --brand: #6366f1;
-            --brand-hover: #818cf8;
-            --brand-muted: #4f46e5;
-            --brand-subtle: rgba(99, 102, 241, 0.1);
-            --brand-soft: rgba(99, 102, 241, 0.15);
-            --accent: #6366f1;
-            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 4px 16px 0 rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.6);
-            --shadow-brand: 0 0 0 1px rgba(99, 102, 241, 0.2), 0 2px 12px rgba(99, 102, 241, 0.15);
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 14px;
             --radius-xl: 20px;
+            
+            /* Light mode (default) */
+            --fg: #18181b;
+            --fg-muted: #52525b;
+            --fg-soft: #71717a;
+            --fg-dim: #a1a1aa;
+            --bg: #ffffff;
+            --bg-subtle: #fafafa;
+            --bg-surface: #f4f4f5;
+            --bg-elevated: #e4e4e7;
+            --bg-header: rgba(255, 255, 255, 0.8);
+            --bg-nav-mobile: rgba(250, 250, 250, 0.98);
+            --border: #e4e4e7;
+            --border-subtle: #f4f4f5;
+            --border-hover: #d4d4d8;
+            --brand: #6366f1;
+            --brand-hover: #4f46e5;
+            --brand-muted: #818cf8;
+            --brand-subtle: rgba(99, 102, 241, 0.08);
+            --brand-soft: rgba(99, 102, 241, 0.12);
+            --accent: #6366f1;
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+            --shadow-brand: 0 0 0 1px rgba(99, 102, 241, 0.1), 0 2px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fg: #ffffff;
+                --fg-muted: #a1a1aa;
+                --fg-soft: #71717a;
+                --fg-dim: #52525b;
+                --bg: #0a0a0b;
+                --bg-subtle: #111113;
+                --bg-surface: #18181b;
+                --bg-elevated: #27272a;
+                --bg-header: rgba(10, 10, 11, 0.8);
+                --bg-nav-mobile: rgba(24, 24, 27, 0.98);
+                --border: #27272a;
+                --border-subtle: #1a1a1c;
+                --border-hover: #3f3f46;
+                --brand: #6366f1;
+                --brand-hover: #818cf8;
+                --brand-muted: #4f46e5;
+                --brand-subtle: rgba(99, 102, 241, 0.1);
+                --brand-soft: rgba(99, 102, 241, 0.15);
+                --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+                --shadow-md: 0 4px 16px 0 rgba(0, 0, 0, 0.5);
+                --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.6);
+                --shadow-brand: 0 0 0 1px rgba(99, 102, 241, 0.2), 0 2px 12px rgba(99, 102, 241, 0.15);
+            }
         }
 
         * {
@@ -252,20 +282,7 @@
         }
 
         .menu-toggle {
-            display: none;
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.5rem;
-            cursor: pointer;
-            color: var(--fg);
-            transition: all 0.2s ease;
-        }
-
-        .menu-toggle:hover,
-        .menu-toggle:focus-visible {
-            border-color: var(--border-hover);
-            background: var(--bg-elevated);
+            display: none !important;
         }
 
         section {
@@ -472,12 +489,11 @@
             font-size: 0.9375rem;
             color: var(--fg);
             line-height: 1.4;
+            transition: color 0.2s ease;
         }
 
-        .entry-meta {
-            font-size: 0.8125rem;
-            color: var(--fg-dim);
-            font-weight: 500;
+        .entry-name:hover {
+            color: var(--brand-hover);
         }
 
         .entry-tags {
@@ -537,25 +553,6 @@
             color: var(--fg-soft);
             font-style: normal;
             line-height: 1.5;
-        }
-
-        .entry-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .entry-links a {
-            color: var(--brand-hover);
-            transition: color 0.2s ease;
-        }
-
-        .entry-links a:hover,
-        .entry-links a:focus-visible {
-            color: var(--brand);
-            text-decoration: underline;
         }
 
         footer {
@@ -637,38 +634,32 @@
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: inline-flex;
-            }
-
             .header-bar {
-                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
             }
 
             .main-nav {
-                position: absolute;
-                top: calc(100% + 0.5rem);
-                right: clamp(1rem, 4vw, 1.5rem);
-                left: clamp(1rem, 4vw, 1.5rem);
-                flex-direction: column;
-                align-items: stretch;
-                background: var(--bg-nav-mobile);
-                border: 1px solid var(--border);
-                border-radius: var(--radius-lg);
-                padding: 0.875rem;
-                gap: 0.375rem;
-                box-shadow: var(--shadow-md);
-                display: none;
-            }
-
-            .main-nav.open {
-                display: flex;
-            }
-
-            .nav-link,
-            .lang-toggle {
                 width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: center;
+                gap: 0.375rem;
+            }
+
+            .nav-link {
+                padding: 0.375rem 0.875rem;
+                font-size: 0.875rem;
+            }
+
+            .lang-toggle {
+                padding: 0.1875rem;
+            }
+
+            .lang-btn {
+                padding: 0.3125rem 0.625rem;
+                font-size: 0.75rem;
             }
 
             .hero {
@@ -733,11 +724,6 @@
                     <span class="lang-en">AI Safety Montréal</span>
                     <span class="lang-fr">Sécurité de l'IA Montréal</span>
                 </div>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 12h18M3 6h18M3 18h18"/>
-                    </svg>
-                </button>
                 <nav class="main-nav" id="main-nav" aria-label="Primary">
                     <a class="nav-link" href="#events"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a>
                     <a class="nav-link" href="#directory"><span class="lang-en">Organizations</span><span class="lang-fr">Organisations</span></a>
@@ -829,19 +815,18 @@
         <div class="container">
             <div class="footer-content">
                 <p>
-                    <span class="lang-en">Community-maintained directory • Contact: </span>
-                    <span class="lang-fr">Annuaire communautaire • Contact : </span>
-                    <a href="mailto:team@horizonomega.org">team@horizonomega.org</a>
-                </p>
-                <p style="margin-top: 0.5rem;">
+                    <span class="lang-en">Community-maintained directory</span>
+                    <span class="lang-fr">Annuaire communautaire</span>
+                    <span style="margin: 0 0.5rem; opacity: 0.5;">•</span>
                     <span class="lang-en">Last updated: October 31, 2025</span>
                     <span class="lang-fr">Dernière mise à jour : 31 octobre 2025</span>
                 </p>
                 <div class="footer-links">
-                    <a href="https://github.com/HorizonOmega/aisafetymontreal.org" target="_blank" rel="noopener noreferrer">
-                        <span class="lang-en">GitHub</span>
-                        <span class="lang-fr">GitHub</span>
+                    <a href="mailto:team@horizonomega.org">
+                        <span class="lang-en">Contact</span>
+                        <span class="lang-fr">Contact</span>
                     </a>
+                    <a href="https://github.com/HorizonOmega/aisafetymontreal.org" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
         </div>
@@ -849,20 +834,20 @@
 
     <script>
         const organizations = [
-            { name: "Mila – Québec AI Institute", type: "research", tags: ["technical", "academic"], desc: "World's largest academic deep learning research center with 140+ affiliated professors. Technical alignment, interpretability, responsible AI development.", focus: "Deep learning research, technical alignment, interpretability, responsible AI", size: null, links: [{ text: "Website", url: "https://mila.quebec/en" }, { text: "Careers", url: "https://apply.workable.com/mila-2/" }] },
-            { name: "Krueger AI Safety Lab (KASL)", type: "research", tags: ["technical", "academic"], desc: "Technical AI safety research group at Mila led by David Krueger. Research in misgeneralization, mechanistic interpretability, and reward specification.", focus: "Technical alignment, misgeneralization, scalable oversight, interpretability, goal misalignment", size: null, links: [{ text: "Website", url: "https://www.kasl.ai" }] },
-            { name: "IVADO — R³AI / R10: AI Safety & Alignment", type: "research", tags: ["technical", "academic"], desc: "Multi-year research program on AI safety across axes: evaluating harmful behaviors, understanding AI decision-making, algorithmic approaches for safe AI.", focus: "AI evaluation, alignment, scalable oversight, evaluating and mitigating LLM biases", size: null, links: [{ text: "Website", url: "https://ivado.ca/en/regroupements/ai-safety-and-alignment/" }] },
-            { name: "LawZero", type: "research", tags: ["technical"], desc: "Nonprofit AI safety research organization launched by Yoshua Bengio. Focuses on non-agentic 'Scientist AI' architecture as alternative to frontier lab approaches.", focus: "Safe-by-design systems, truth-seeking AI, non-agentic Scientist AI, safety architectures", size: null, links: [{ text: "Website", url: "https://lawzero.org/en" }] },
-            { name: "AI Safety Reading Group (Mila)", type: "research", tags: ["technical", "community"], desc: "Student-led reading groups at Mila covering AI safety topics; schedules vary by term.", focus: null, size: null, links: [{ text: "Student Resources", url: "https://mila.quebec/en/prospective-students-postdocs/student-life-and-resources" }] },
-            { name: "Canadian AI Safety Institute (CAISI)", type: "policy", tags: ["policy", "technical"], desc: "Federal government AI safety institute. Funds research through CIFAR and NRC programs, develops safety tools/guidance. Member of International Network of AI Safety Institutes.", focus: "AI safety research, risk assessment, tools/guidance development", size: null, links: [{ text: "Website", url: "https://cifar.ca/ai/caisi/" }] },
-            { name: "Montréal AI Governance, Ethics & Safety Meetup", type: "community", tags: ["community"], desc: "Public meetup community hosting talks, workshops, discussions on AI governance, ethics and safety. Co-organized with Horizon Omega.", focus: null, size: null, links: [{ text: "Join", url: "https://luma.com/montreal-ai-safety-ethics-governance?k=c" }] },
-            { name: "PauseAI Montréal", type: "community", tags: ["community"], desc: "Volunteer community advocating to mitigate AI risks and pause development of superhuman AI until safe.", focus: "AI risk awareness, policy advocacy for pausing superhuman AI, public education", size: null, links: [{ text: "Website", url: "https://pauseai.ca/montreal.html" }] },
-            { name: "AI Alignment McGill (AIAM)", type: "university", tags: ["community", "academic"], desc: "Student club at McGill focused on AI alignment and safety; organizes reading groups, hackathons and related activities.", focus: null, size: null, links: [{ text: "Alignment Forum", url: "https://www.alignmentforum.org/groups/TLbuSuKccZThdvDBo" }, { text: "Discord", url: "https://discord.gg/KvDpmxKDvw" }] },
-            { name: "Horizon Omega (HΩ)", type: "independent", tags: ["community"], desc: "Montreal-based nonprofit hub supporting local AI safety, ethics and governance community through meetups, coworking, workshops and collaborations.", focus: "Ecosystem building, event coordination (GSAI, AISU), community resources, accelerating AI safety R&D", size: null, links: [{ text: "Website", url: "https://www.horizonomega.org/" }, { text: "Email", url: "mailto:team@horizonomega.org" }] },
-            { name: "Montréal AI Ethics Institute (MAIEI)", type: "independent", tags: ["policy"], desc: "International non-profit founded 2018 that equips citizens concerned about AI and its societal impacts to take action. Produces AI Ethics Brief and State of AI Ethics reports.", focus: "AI ethics research, educational resources, policy analysis, democratizing AI ethics literacy", size: null, links: [{ text: "Website", url: "https://montrealethics.ai/" }] },
-            { name: "CEIMIA", type: "independent", tags: ["policy"], desc: "Independent organization managing Montreal hub of GPAI Network of Centres. Implements high-impact applied projects for responsible AI based on ethics and human rights.", focus: "International AI governance, inclusive policy development, multi-stakeholder coordination, manages GPAI Montreal hub", size: null, links: [{ text: "Website", url: "https://ceimia.org/en/" }] },
-            { name: "OBVIA", type: "independent", tags: ["policy", "academic"], desc: "Inter-university observatory on societal impacts of AI. Network of researchers from Quebec institutions publishing research across 7 thematic hubs.", focus: "Societal impacts of AI, policy research, public engagement, interdisciplinary research", size: null, links: [{ text: "Website", url: "https://www.obvia.ca/" }] },
-            { name: "CIFAR — AI & Society", type: "independent", tags: ["policy", "academic"], desc: "Program under Pan-Canadian AI Strategy that convenes interdisciplinary meetings and publishes reports on AI's societal impacts for policymakers and public.", focus: "AI societal impacts, governance frameworks, interdisciplinary research, responsible AI deployment", size: null, links: [{ text: "Website", url: "https://cifar.ca/ai/ai-and-society/" }] }
+            { name: "Mila – Québec AI Institute", type: "research", tags: ["technical", "academic"], desc: "World's largest academic deep learning research center with 140+ affiliated professors. Technical alignment, interpretability, responsible AI development.", focus: "Deep learning research, technical alignment, interpretability, responsible AI", url: "https://mila.quebec/en" },
+            { name: "Krueger AI Safety Lab (KASL)", type: "research", tags: ["technical", "academic"], desc: "Technical AI safety research group at Mila led by David Krueger. Research in misgeneralization, mechanistic interpretability, and reward specification.", focus: "Technical alignment, misgeneralization, scalable oversight, interpretability, goal misalignment", url: "https://www.kasl.ai" },
+            { name: "IVADO — R³AI / R10: AI Safety & Alignment", type: "research", tags: ["technical", "academic"], desc: "Multi-year research program on AI safety across axes: evaluating harmful behaviors, understanding AI decision-making, algorithmic approaches for safe AI.", focus: "AI evaluation, alignment, scalable oversight, evaluating and mitigating LLM biases", url: "https://ivado.ca/en/regroupements/ai-safety-and-alignment/" },
+            { name: "LawZero", type: "research", tags: ["technical"], desc: "Nonprofit AI safety research organization launched by Yoshua Bengio. Focuses on non-agentic 'Scientist AI' architecture as alternative to frontier lab approaches.", focus: "Safe-by-design systems, truth-seeking AI, non-agentic Scientist AI, safety architectures", url: "https://lawzero.org/en" },
+            { name: "AI Safety Reading Group (Mila)", type: "research", tags: ["technical", "community"], desc: "Student-led reading groups at Mila covering AI safety topics; schedules vary by term.", focus: null, url: "https://mila.quebec/en/prospective-students-postdocs/student-life-and-resources" },
+            { name: "Canadian AI Safety Institute (CAISI)", type: "policy", tags: ["policy", "technical"], desc: "Federal government AI safety institute. Funds research through CIFAR and NRC programs, develops safety tools/guidance. Member of International Network of AI Safety Institutes.", focus: "AI safety research, risk assessment, tools/guidance development", url: "https://cifar.ca/ai/caisi/" },
+            { name: "Montréal AI Governance, Ethics & Safety Meetup", type: "community", tags: ["community"], desc: "Public meetup community hosting talks, workshops, discussions on AI governance, ethics and safety. Co-organized with Horizon Omega.", focus: null, url: "https://luma.com/montreal-ai-safety-ethics-governance?k=c" },
+            { name: "PauseAI Montréal", type: "community", tags: ["community"], desc: "Volunteer community advocating to mitigate AI risks and pause development of superhuman AI until safe.", focus: "AI risk awareness, policy advocacy for pausing superhuman AI, public education", url: "https://pauseai.ca/montreal.html" },
+            { name: "AI Alignment McGill (AIAM)", type: "university", tags: ["community", "academic"], desc: "Student club at McGill focused on AI alignment and safety; organizes reading groups, hackathons and related activities.", focus: null, url: "https://www.alignmentforum.org/groups/TLbuSuKccZThdvDBo" },
+            { name: "Horizon Omega (HΩ)", type: "independent", tags: ["community"], desc: "Montreal-based nonprofit hub supporting local AI safety, ethics and governance community through meetups, coworking, workshops and collaborations.", focus: "Ecosystem building, event coordination (GSAI, AISU), community resources, accelerating AI safety R&D", url: "https://www.horizonomega.org/" },
+            { name: "Montréal AI Ethics Institute (MAIEI)", type: "independent", tags: ["policy"], desc: "International non-profit founded 2018 that equips citizens concerned about AI and its societal impacts to take action. Produces AI Ethics Brief and State of AI Ethics reports.", focus: "AI ethics research, educational resources, policy analysis, democratizing AI ethics literacy", url: "https://montrealethics.ai/" },
+            { name: "CEIMIA", type: "independent", tags: ["policy"], desc: "Independent organization managing Montreal hub of GPAI Network of Centres. Implements high-impact applied projects for responsible AI based on ethics and human rights.", focus: "International AI governance, inclusive policy development, multi-stakeholder coordination, manages GPAI Montreal hub", url: "https://ceimia.org/en/" },
+            { name: "OBVIA", type: "independent", tags: ["policy", "academic"], desc: "Inter-university observatory on societal impacts of AI. Network of researchers from Quebec institutions publishing research across 7 thematic hubs.", focus: "Societal impacts of AI, policy research, public engagement, interdisciplinary research", url: "https://www.obvia.ca/" },
+            { name: "CIFAR — AI & Society", type: "independent", tags: ["policy", "academic"], desc: "Program under Pan-Canadian AI Strategy that convenes interdisciplinary meetings and publishes reports on AI's societal impacts for policymakers and public.", focus: "AI societal impacts, governance frameworks, interdisciplinary research, responsible AI deployment", url: "https://cifar.ca/ai/ai-and-society/" }
         ];
 
         const tagLabels = {
@@ -878,23 +863,15 @@
         const renderDirectory = () => {
             const list = document.getElementById('directory-list');
             list.innerHTML = organizations.map(org => {
-                const typeLabels = { research: 'Research', policy: 'Policy', community: 'Community', university: 'University', independent: 'Independent' };
-                const typeLabel = typeLabels[org.type] || org.type;
-                const metaParts = [typeLabel];
-                if (org.size) metaParts.push(org.size);
-                const metaLine = metaParts.join(' · ');
-                
                 return `
                 <li data-type="${org.type}">
                     <div class="directory-card">
                         <div class="entry-topline">
-                            <span class="entry-name">${esc(org.name)}</span>
+                            <a href="${esc(org.url)}" class="entry-name"${external(org.url)}>${esc(org.name)}</a>
                             <span class="entry-tags">${org.tags.map(t => `<span class="tag tag-${t}">${tagLabels[t] || t}</span>`).join('')}</span>
                         </div>
-                        <div class="entry-meta">${esc(metaLine)}</div>
                         <div class="entry-desc">${esc(org.desc)}</div>
-                        ${org.focus ? `<div class="entry-focus">Focus: ${esc(org.focus)}</div>` : ''}
-                        <div class="entry-links">${org.links.map(l => `<a href="${esc(l.url)}"${external(l.url)}>${esc(l.text)}</a>`).join(' · ')}</div>
+                        ${org.focus ? `<div class="entry-focus">${esc(org.focus)}</div>` : ''}
                     </div>
                 </li>
             `;
@@ -952,21 +929,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderDirectory();
             setupScrollSpy();
-
-            const menuToggle = document.getElementById('menu-toggle');
-            const mainNav = document.getElementById('main-nav');
-            
-            menuToggle?.addEventListener('click', () => {
-                const isOpen = mainNav.classList.toggle('open');
-                menuToggle.setAttribute('aria-expanded', String(isOpen));
-            });
-
-            mainNav?.addEventListener('click', e => {
-                if (e.target.tagName === 'A') {
-                    mainNav.classList.remove('open');
-                    menuToggle?.setAttribute('aria-expanded', 'false');
-                }
-            });
 
             try { 
                 setLanguage(localStorage.getItem('language') || 'en'); 
