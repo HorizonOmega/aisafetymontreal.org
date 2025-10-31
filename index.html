@@ -847,6 +847,10 @@
             max-width: none;
         }
 
+        footer p + p {
+            margin-top: 0.5rem;
+        }
+
         footer a {
             color: var(--brand-hover);
             font-weight: 500;
@@ -865,6 +869,11 @@
             gap: 1.25rem;
             margin-top: 0.75rem;
             flex-wrap: wrap;
+        }
+
+        .footer-separator {
+            margin: 0 0.5rem;
+            opacity: 0.5;
         }
 
         .lang-fr {
@@ -1129,11 +1138,11 @@
                 <p>
                     <span class="lang-en">Community-maintained directory</span>
                     <span class="lang-fr">Annuaire communautaire</span>
-                    <span style="margin: 0 0.5rem; opacity: 0.5;">•</span>
+                    <span class="footer-separator">•</span>
                     <span class="lang-en">Last updated: October 31, 2025</span>
                     <span class="lang-fr">Dernière mise à jour : 31 octobre 2025</span>
                 </p>
-                <p style="margin-top: 0.5rem;">
+                <p>
                     <span class="lang-en">Contact us to contribute to this website, add events, or list your organization</span>
                     <span class="lang-fr">Contactez-nous pour contribuer à ce site, ajouter des événements ou lister votre organisation</span>
                 </p>
