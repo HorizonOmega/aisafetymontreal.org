@@ -1158,31 +1158,41 @@
 
     <script>
         const organizations = [
-            { name: "Mila – Québec AI Institute", sector: "academic", activities: ["research", "network-events"], desc: "Academic deep learning research center with 140+ affiliated professors. Technical alignment, interpretability, responsible AI development.", focus: "Deep learning research, technical alignment, interpretability, responsible AI", url: "https://mila.quebec/en" },
-            { name: "Krueger AI Safety Lab (KASL)", sector: "academic", activities: ["research"], desc: "Technical AI safety research group at Mila led by David Krueger. Research in misgeneralization, mechanistic interpretability, and reward specification.", focus: "Technical alignment, misgeneralization, scalable oversight, interpretability, goal misalignment", url: "https://www.kasl.ai" },
-            { name: "IVADO — R³AI / R10: AI Safety & Alignment", sector: "academic", activities: ["research"], desc: "Multi-year research program on AI safety across axes: evaluating harmful behaviors, understanding AI decision-making, algorithmic approaches for safe AI.", focus: "AI evaluation, alignment, scalable oversight, evaluating and mitigating LLM biases", url: "https://ivado.ca/en/regroupements/ai-safety-and-alignment/" },
-            { name: "LawZero", sector: "nonprofit", activities: ["research"], desc: "Nonprofit AI safety research organization launched by Yoshua Bengio. Focuses on non-agentic 'Scientist AI' architecture as alternative to frontier lab approaches.", focus: "Safe-by-design systems, truth-seeking AI, non-agentic Scientist AI, safety architectures", url: "https://lawzero.org/en" },
-            { name: "AI Safety Reading Group (Mila)", sector: "academic", activities: ["research"], desc: "Biweekly research seminar series at Mila inviting authors to present their own AI safety papers.", focus: null, url: "https://mila.quebec/en/prospective-students-postdocs/student-life-and-resources" },
-            { name: "Canadian AI Safety Institute (CAISI)", sector: "government", activities: ["research", "governance-policy", "standards-assurance"], desc: "Federal government AI safety institute. Funds research through CIFAR and NRC programs, develops safety tools/guidance. Member of International Network of AI Safety Institutes.", focus: "AI safety research, risk assessment, tools/guidance development", url: "https://cifar.ca/ai/caisi/" },
-            { name: "Montréal AI Governance, Ethics & Safety Meetup", sector: "nonprofit", activities: ["network-events"], desc: "Public meetup community hosting talks, workshops, discussions on AI governance, ethics and safety. Co-organized with Horizon Omega.", focus: null, url: "https://luma.com/montreal-ai-safety-ethics-governance?k=c" },
-            { name: "PauseAI Montréal", sector: "nonprofit", activities: ["advocacy", "network-events"], desc: "Volunteer community advocating to mitigate AI risks and pause development of superhuman AI until safe.", focus: "AI risk awareness, policy advocacy for pausing superhuman AI, public education", url: "https://pauseai.ca/montreal.html" },
-            { name: "AI Alignment McGill (AIAM)", sector: "community-student", activities: ["education-training", "network-events"], desc: "Student club at McGill focused on AI alignment and safety; organizes reading groups, hackathons and related activities.", focus: null, url: "https://www.alignmentforum.org/groups/TLbuSuKccZThdvDBo" },
-            { name: "Horizon Omega (HΩ)", sector: "nonprofit", activities: ["network-events"], desc: "Montréal-based nonprofit hub supporting local AI safety, ethics and governance community through meetups, coworking, workshops and collaborations.", focus: "Ecosystem building, event coordination (GSAI, AISU), community resources, accelerating AI safety R&D", url: "https://www.horizonomega.org/" },
-            { name: "Montréal AI Ethics Institute (MAIEI)", sector: "nonprofit", activities: ["governance-policy"], desc: "International non-profit founded 2018 that equips citizens concerned about AI and its societal impacts to take action. Produces AI Ethics Brief and State of AI Ethics reports.", focus: "AI ethics research, educational resources, policy analysis, democratizing AI ethics literacy", url: "https://montrealethics.ai/" },
-            { name: "CEIMIA", sector: "nonprofit", activities: ["governance-policy"], desc: "Independent organization managing Montréal hub of GPAI Network of Centres. Implements high-impact applied projects for responsible AI based on ethics and human rights.", focus: "International AI governance, inclusive policy development, multi-stakeholder coordination, manages GPAI Montréal hub", url: "https://ceimia.org/en/" },
-            { name: "OBVIA", sector: "academic", activities: ["research", "governance-policy"], desc: "Inter-university observatory on societal impacts of AI. Network of researchers from Quebec institutions publishing research across 7 thematic hubs.", focus: "Societal impacts of AI, policy research, public engagement, interdisciplinary research", url: "https://www.obvia.ca/" },
-            { name: "CIFAR — AI & Society", sector: "academic", activities: ["research", "governance-policy"], desc: "Program under Pan-Canadian AI Strategy that convenes interdisciplinary meetings and publishes reports on AI's societal impacts for policymakers and public.", focus: "AI societal impacts, governance frameworks, interdisciplinary research, responsible AI deployment", url: "https://cifar.ca/ai/ai-and-society/" },
-            { name: "Encode Canada", sector: "community-student", activities: ["education-training", "network-events"], desc: "Youth-led group that builds AI literacy and early-career capacity through student fellowships, hands-on workshops, public events, and creative programs.", focus: "AI literacy and governance advocacy; workshops and speaker series; 'Ethics Decoded' podcast; public performances like 'System Reboot.'", url: "https://encodecanada.ca/" },
-            { name: "McGill Centre for Media, Technology & Democracy (CMTD)", sector: "academic", activities: ["research", "governance-policy"], desc: "Research centre at McGill's Max Bell School focused on AI governance, transparency and democratic oversight. Publishes analyses and convenes workshops informing Canadian and international policy.", focus: "AI & Democracy initiative, facial recognition policy, AIDA analysis, impact assessments, high-risk AI regulation", url: "https://www.mediatechdemocracy.com/" }
+            { name: "Mila – Québec AI Institute", sector: "academic", activities: ["research", "network-events"], desc: "Academic deep learning research center with 140+ affiliated professors. Technical alignment, interpretability, responsible AI development.", desc_fr: "Centre de recherche académique en apprentissage profond avec plus de 140 professeurs affiliés. Alignement technique, interprétabilité, développement responsable de l'IA.", focus: "Deep learning research, technical alignment, interpretability, responsible AI", focus_fr: "Recherche en apprentissage profond, alignement technique, interprétabilité, IA responsable", url: "https://mila.quebec/en" },
+            { name: "Krueger AI Safety Lab (KASL)", sector: "academic", activities: ["research"], desc: "Technical AI safety research group at Mila led by David Krueger. Research in misgeneralization, mechanistic interpretability, and reward specification.", desc_fr: "Groupe de recherche en sécurité de l'IA à Mila dirigé par David Krueger. Recherche sur la généralisation erronée, l'interprétabilité mécaniste et la spécification des récompenses.", focus: "Technical alignment, misgeneralization, scalable oversight, interpretability, goal misalignment", focus_fr: "Alignement technique, généralisation erronée, supervision évolutive, interprétabilité, désalignement des objectifs", url: "https://www.kasl.ai" },
+            { name: "IVADO — R³AI / R10: AI Safety & Alignment", sector: "academic", activities: ["research"], desc: "Multi-year research program on AI safety across axes: evaluating harmful behaviors, understanding AI decision-making, algorithmic approaches for safe AI.", desc_fr: "Programme de recherche pluriannuel sur la sécurité de l'IA selon plusieurs axes : évaluation des comportements nuisibles, compréhension de la prise de décision de l'IA, approches algorithmiques pour une IA sûre.", focus: "AI evaluation, alignment, scalable oversight, evaluating and mitigating LLM biases", focus_fr: "Évaluation de l'IA, alignement, supervision évolutive, évaluation et atténuation des biais des grands modèles de langage", url: "https://ivado.ca/en/regroupements/ai-safety-and-alignment/" },
+            { name: "LawZero", sector: "nonprofit", activities: ["research"], desc: "Nonprofit AI safety research organization launched by Yoshua Bengio. Focuses on non-agentic 'Scientist AI' architecture as alternative to frontier lab approaches.", desc_fr: "Organisation de recherche à but non lucratif en sécurité de l'IA lancée par Yoshua Bengio. Se concentre sur l'architecture « IA scientifique » non agentique comme alternative aux approches des laboratoires de pointe.", focus: "Safe-by-design systems, truth-seeking AI, non-agentic Scientist AI, safety architectures", focus_fr: "Systèmes sûrs par conception, IA en quête de vérité, IA scientifique non agentique, architectures de sécurité", url: "https://lawzero.org/en" },
+            { name: "AI Safety Reading Group (Mila)", sector: "academic", activities: ["research"], desc: "Biweekly research seminar series at Mila inviting authors to present their own AI safety papers.", desc_fr: "Série de séminaires de recherche bihebdomadaires à Mila invitant des auteurs à présenter leurs propres articles sur la sécurité de l'IA.", focus: null, focus_fr: null, url: "https://mila.quebec/en/prospective-students-postdocs/student-life-and-resources" },
+            { name: "Canadian AI Safety Institute (CAISI)", sector: "government", activities: ["research", "governance-policy", "standards-assurance"], desc: "Federal government AI safety institute. Funds research through CIFAR and NRC programs, develops safety tools/guidance. Member of International Network of AI Safety Institutes.", desc_fr: "Institut fédéral de sécurité de l'IA. Finance la recherche via les programmes CIFAR et CNRC, développe des outils et des lignes directrices de sécurité. Membre du Réseau international des instituts de sécurité de l'IA.", focus: "AI safety research, risk assessment, tools/guidance development", focus_fr: "Recherche en sécurité de l'IA, évaluation des risques, développement d'outils et de lignes directrices", url: "https://cifar.ca/ai/caisi/" },
+            { name: "Montréal AI Governance, Ethics & Safety Meetup", sector: "nonprofit", activities: ["network-events"], desc: "Public meetup community hosting talks, workshops, discussions on AI governance, ethics and safety. Co-organized with Horizon Omega.", desc_fr: "Communauté de rencontres publiques organisant des conférences, ateliers et discussions sur la gouvernance, l'éthique et la sécurité de l'IA. Co-organisé avec Horizon Omega.", focus: null, focus_fr: null, url: "https://luma.com/montreal-ai-safety-ethics-governance?k=c" },
+            { name: "PauseAI Montréal", sector: "nonprofit", activities: ["advocacy", "network-events"], desc: "Volunteer community advocating to mitigate AI risks and pause development of superhuman AI until safe.", desc_fr: "Communauté de bénévoles plaidant pour atténuer les risques de l'IA et suspendre le développement de l'IA surhumaine jusqu'à ce qu'elle soit sûre.", focus: "AI risk awareness, policy advocacy for pausing superhuman AI, public education", focus_fr: "Sensibilisation aux risques de l'IA, plaidoyer pour suspendre l'IA surhumaine, éducation publique", url: "https://pauseai.ca/montreal.html" },
+            { name: "AI Alignment McGill (AIAM)", sector: "community-student", activities: ["education-training", "network-events"], desc: "Student club at McGill focused on AI alignment and safety; organizes reading groups, hackathons and related activities.", desc_fr: "Club étudiant à McGill axé sur l'alignement et la sécurité de l'IA ; organise des groupes de lecture, des hackathons et des activités connexes.", focus: null, focus_fr: null, url: "https://www.alignmentforum.org/groups/TLbuSuKccZThdvDBo" },
+            { name: "Horizon Omega (HΩ)", sector: "nonprofit", activities: ["network-events"], desc: "Montréal-based nonprofit hub supporting local AI safety, ethics and governance community through meetups, coworking, workshops and collaborations.", desc_fr: "Hub à but non lucratif basé à Montréal soutenant la communauté locale en sécurité, éthique et gouvernance de l'IA par des rencontres, du cotravail, des ateliers et des collaborations.", focus: "Ecosystem building, event coordination (GSAI, AISU), community resources, accelerating AI safety R&D", focus_fr: "Développement d'écosystème, coordination d'événements (GSAI, AISU), ressources communautaires, accélération de la R&D en sécurité de l'IA", url: "https://www.horizonomega.org/" },
+            { name: "Montréal AI Ethics Institute (MAIEI)", sector: "nonprofit", activities: ["governance-policy"], desc: "International non-profit founded 2018 that equips citizens concerned about AI and its societal impacts to take action. Produces AI Ethics Brief and State of AI Ethics reports.", desc_fr: "Organisation internationale à but non lucratif fondée en 2018 qui équipe les citoyens préoccupés par l'IA et ses impacts sociétaux pour agir. Produit des résumés d'éthique de l'IA et des rapports sur l'état de l'éthique de l'IA.", focus: "AI ethics research, educational resources, policy analysis, democratizing AI ethics literacy", focus_fr: "Recherche en éthique de l'IA, ressources éducatives, analyse des politiques, démocratisation de la littératie en éthique de l'IA", url: "https://montrealethics.ai/" },
+            { name: "CEIMIA", sector: "nonprofit", activities: ["governance-policy"], desc: "Independent organization managing Montréal hub of GPAI Network of Centres. Implements high-impact applied projects for responsible AI based on ethics and human rights.", desc_fr: "Organisation indépendante gérant le hub montréalais du Réseau de centres du PMIA. Met en œuvre des projets appliqués à fort impact pour une IA responsable basée sur l'éthique et les droits humains.", focus: "International AI governance, inclusive policy development, multi-stakeholder coordination, manages GPAI Montréal hub", focus_fr: "Gouvernance internationale de l'IA, développement de politiques inclusives, coordination multipartite, gère le hub PMIA Montréal", url: "https://ceimia.org/en/" },
+            { name: "OBVIA", sector: "academic", activities: ["research", "governance-policy"], desc: "Inter-university observatory on societal impacts of AI. Network of researchers from Quebec institutions publishing research across 7 thematic hubs.", desc_fr: "Observatoire interuniversitaire sur les impacts sociétaux de l'IA. Réseau de chercheurs d'institutions québécoises publiant des recherches à travers 7 pôles thématiques.", focus: "Societal impacts of AI, policy research, public engagement, interdisciplinary research", focus_fr: "Impacts sociétaux de l'IA, recherche en politiques, engagement public, recherche interdisciplinaire", url: "https://www.obvia.ca/" },
+            { name: "CIFAR — AI & Society", sector: "academic", activities: ["research", "governance-policy"], desc: "Program under Pan-Canadian AI Strategy that convenes interdisciplinary meetings and publishes reports on AI's societal impacts for policymakers and public.", desc_fr: "Programme dans le cadre de la Stratégie pancanadienne en matière d'IA qui organise des réunions interdisciplinaires et publie des rapports sur les impacts sociétaux de l'IA pour les décideurs et le public.", focus: "AI societal impacts, governance frameworks, interdisciplinary research, responsible AI deployment", focus_fr: "Impacts sociétaux de l'IA, cadres de gouvernance, recherche interdisciplinaire, déploiement responsable de l'IA", url: "https://cifar.ca/ai/ai-and-society/" },
+            { name: "Encode Canada", sector: "community-student", activities: ["education-training", "network-events"], desc: "Youth-led group that builds AI literacy and early-career capacity through student fellowships, hands-on workshops, public events, and creative programs.", desc_fr: "Groupe dirigé par des jeunes qui développe la littératie en IA et les capacités en début de carrière par des bourses étudiantes, des ateliers pratiques, des événements publics et des programmes créatifs.", focus: "AI literacy and governance advocacy; workshops and speaker series; 'Ethics Decoded' podcast; public performances like 'System Reboot.'", focus_fr: "Plaidoyer pour la littératie et la gouvernance de l'IA ; ateliers et séries de conférenciers ; balado « Ethics Decoded » ; performances publiques comme « System Reboot ».", url: "https://encodecanada.ca/" },
+            { name: "McGill Centre for Media, Technology & Democracy (CMTD)", sector: "academic", activities: ["research", "governance-policy"], desc: "Research centre at McGill's Max Bell School focused on AI governance, transparency and democratic oversight. Publishes analyses and convenes workshops informing Canadian and international policy.", desc_fr: "Centre de recherche de l'École Max Bell de McGill axé sur la gouvernance de l'IA, la transparence et la surveillance démocratique. Publie des analyses et organise des ateliers éclairant les politiques canadiennes et internationales.", focus: "AI & Democracy initiative, facial recognition policy, AIDA analysis, impact assessments, high-risk AI regulation", focus_fr: "Initiative IA et démocratie, politique de reconnaissance faciale, analyse de la LIAD, évaluations d'impact, réglementation de l'IA à haut risque", url: "https://www.mediatechdemocracy.com/" }
         ];
 
         const activityLabels = {
-            "research": "Research",
-            "governance-policy": "Policy",
-            "advocacy": "Advocacy",
-            "education-training": "Education",
-            "network-events": "Events",
-            "standards-assurance": "Standards"
+            en: {
+                "research": "Research",
+                "governance-policy": "Policy",
+                "advocacy": "Advocacy",
+                "education-training": "Education",
+                "network-events": "Events",
+                "standards-assurance": "Standards"
+            },
+            fr: {
+                "research": "Recherche",
+                "governance-policy": "Politique",
+                "advocacy": "Plaidoyer",
+                "education-training": "Éducation",
+                "network-events": "Événements",
+                "standards-assurance": "Normes"
+            }
         };
 
         const esc = s => s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
@@ -1190,8 +1200,14 @@
 
         const renderDirectory = () => {
             const list = document.getElementById('directory-list');
+            const isFrench = document.body.classList.contains('french');
+            const lang = isFrench ? 'fr' : 'en';
+            
             list.innerHTML = organizations.map(org => {
-                const activityBadges = org.activities.map(a => `<span class="tag tag-${a}">${activityLabels[a] || a}</span>`).join('');
+                const activityBadges = org.activities.map(a => `<span class="tag tag-${a}">${activityLabels[lang][a] || a}</span>`).join('');
+                const description = isFrench ? (org.desc_fr || org.desc) : org.desc;
+                const focus = isFrench ? (org.focus_fr || org.focus) : org.focus;
+                
                 return `
                 <li data-activities="${org.activities.join(',')}">
                     <div class="directory-card">
@@ -1199,8 +1215,8 @@
                             <a href="${esc(org.url)}" class="entry-name"${external(org.url)}>${esc(org.name)}</a>
                             <span class="entry-tags">${activityBadges}</span>
                         </div>
-                        <div class="entry-desc">${esc(org.desc)}</div>
-                        ${org.focus ? `<div class="entry-focus">${esc(org.focus)}</div>` : ''}
+                        <div class="entry-desc">${esc(description)}</div>
+                        ${focus ? `<div class="entry-focus">${esc(focus)}</div>` : ''}
                     </div>
                 </li>
             `;
@@ -1213,8 +1229,9 @@
             const visibleCount = Array.from(allItems).filter(item => item.style.display !== 'none').length;
             const totalCount = organizations.length;
             const countEl = document.getElementById('directory-count');
+            const isFrench = document.body.classList.contains('french');
             if (countEl) {
-                countEl.textContent = `${visibleCount} of ${totalCount}`;
+                countEl.textContent = isFrench ? `${visibleCount} sur ${totalCount}` : `${visibleCount} of ${totalCount}`;
             }
         };
 
@@ -1224,6 +1241,7 @@
             document.getElementById('html-root').setAttribute('lang', isFr ? 'fr' : 'en');
             document.getElementById('btn-fr').setAttribute('aria-pressed', String(isFr));
             document.getElementById('btn-en').setAttribute('aria-pressed', String(!isFr));
+            renderDirectory();
             try {
                 localStorage.setItem('language', lang);
                 document.cookie = `lang=${lang}; path=/; max-age=31536000`;
@@ -1281,12 +1299,7 @@
                         item.style.display = shouldShow ? '' : 'none';
                     });
                     
-                    const visibleCount = Array.from(document.querySelectorAll('#directory-list li[data-activities]'))
-                        .filter(item => item.style.display !== 'none').length;
-                    const countEl = document.getElementById('directory-count');
-                    if (countEl) {
-                        countEl.textContent = `${visibleCount} of ${organizations.length}`;
-                    }
+                    updateDirectoryCount();
                 });
             });
         });
