@@ -41,8 +41,19 @@ services:
       tinybird__workspaceId: ${TINYBIRD_WORKSPACE_ID:-}
       tinybird__tracker__datasource: analytics_events
       tinybird__stats__endpoint: ${TINYBIRD_API_URL:-https://api.tinybird.co}
+      logging__path: /var/lib/ghost/content/logs
+      logging__level: info
+      # Relax rate limiting for member signups (default is way too aggressive)
+      spam__member_login__freeRetries: 1000
+      spam__member_login__maxWait: 60000
+      # Extend magic link expiration to 3 hours (default is ~10 min)
+      auth__tokenExpiration: 10800000
+      # Privacy: disable external calls (update checks, Gravatar)
+      privacy__useUpdateCheck: false
+      privacy__useGravatar: false
     volumes:
       - ${UPLOAD_LOCATION:-./data/ghost}:/var/lib/ghost/content
+      - ./data/logs:/var/lib/ghost/content/logs
     depends_on:
       db:
         condition: service_healthy
@@ -76,7 +87,6 @@ services:
       test: mysqladmin ping -p$$MYSQL_ROOT_PASSWORD -h 127.0.0.1
       interval: 1s
       start_period: 30s
-      start_interval: 10s
       retries: 120
     networks:
       - ghost_network

@@ -9,4 +9,7 @@ header {
 	Referrer-Policy strict-origin-when-cross-origin
 	# Prevent embedding in external iframes
 	Content-Security-Policy "frame-ancestors 'self' {$ADMIN_DOMAIN:}"
+	# Remove identifying headers
+	-X-Powered-By
+	-Server
 }
