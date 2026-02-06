@@ -1,0 +1,11 @@
+@directory_read {
+	method GET
+	path /api/directory/organizations
+}
+handle @directory_read {
+	rewrite * /api/v1/db/data/noco/pom8xvkqvmhhh2f/mvenkxkhidfr9tz?limit=200&fields=Name,Sector,Activities,Desc,Desc_fr,Focus,Focus_fr,Url
+	reverse_proxy nocodb:8080 {
+		header_up xc-token {$NOCODB_API_TOKEN}
+	}
+	header Cache-Control "public, max-age=300"
+}

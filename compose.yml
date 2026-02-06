@@ -11,6 +11,7 @@ services:
       DOMAIN: ${DOMAIN:?DOMAIN environment variable is required}
       ADMIN_DOMAIN: ${ADMIN_DOMAIN:-}
       ACTIVITYPUB_TARGET: ${ACTIVITYPUB_TARGET:-https://ap.ghost.org}
+      NOCODB_API_TOKEN: ${NOCODB_API_TOKEN:-}
     volumes:
       - ./caddy:/etc/caddy
       - caddy_data:/data
@@ -79,7 +80,7 @@ services:
       MYSQL_USER: ${DATABASE_USER:-ghost}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD environment variable is required}
       MYSQL_DATABASE: ghost
-      MYSQL_MULTIPLE_DATABASES: activitypub
+      MYSQL_MULTIPLE_DATABASES: activitypub,nocodb
     volumes:
       - ${MYSQL_DATA_LOCATION:-./data/mysql}:/var/lib/mysql
       - ./mysql-init:/docker-entrypoint-initdb.d
@@ -131,6 +132,20 @@ services:
       activitypub-migrate:
         condition: service_completed_successfully
     profiles: [activitypub]
+    networks:
+      - ghost_network
+
+  nocodb:
+    image: nocodb/nocodb:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      NC_DB: "mysql2://db:3306?u=${DATABASE_USER:-ghost}&p=${DATABASE_PASSWORD}&d=nocodb"
+      NC_AUTH_JWT_SECRET: ${NOCODB_JWT_SECRET:?NOCODB_JWT_SECRET environment variable is required}
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - ghost_network
 
